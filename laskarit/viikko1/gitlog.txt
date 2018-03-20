@@ -1,0 +1,104 @@
+commit e98387c9f2e0626beed1a5347e200ba0cc5e9579
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:59:40 2018 +0200
+
+    kaikkee tehty
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c32ec0a66c8f396916806d6029726be1408c1a93
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:55:32 2018 +0200
+
+    tiedostoja luotu
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 94c5d37ac208e3c02c1cb19e3fab675ac7081faf
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:50:39 2018 +0200
+
+    muutoksia!
+
+ eka.txt    | 5 ++---
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 06af561a304ce52cef127bffec3f17b3201357f9
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:48:03 2018 +0200
+
+    neat renaming has happened
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4812aec33cafa62834b3c79aa141f7b801553211
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:46:44 2018 +0200
+
+    toinen poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4258bca571cc5eb2493d678f8e551290401128b7
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:45:18 2018 +0200
+
+    lissäää tekstiä
+
+ tiedosto.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 15bfb9a4ac7d2c1c6040d748af854d7390ce4fb2
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:43:43 2018 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 2eac8eaeec86a85de693a31edfd7ff165680eca4
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:39:20 2018 +0200
+
+    stuffia luotu
+
+ stuff/turhafilu.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b710bc6bde819212c1d42c2b9be5e90b1a657355
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:37:37 2018 +0200
+
+    kolmas luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c559341d12e07231383da7125cf358ee9b13c84b
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:35:02 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit 805f07335a07b14a24423dccde183f788bf49679
+Author: havemik <mikko.haverinen@helsinki.fi>
+Date:   Tue Mar 20 18:32:17 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
