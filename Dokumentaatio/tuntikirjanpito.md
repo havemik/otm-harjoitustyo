@@ -2,6 +2,8 @@
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
-| 8.4. | 2    | JavaFX:n opettelua |
-| 9.4. | 2    | lisää JavaFX |
-| 10.4.| 2    | epämääräistä koodia kirjoitettu |
+| 8.4.  | 2    | JavaFX:n opettelua |
+| 9.4.  | 2    | lisää JavaFX |
+| 10.4. | 2    | epämääräistä koodia kirjoitettu |
+| 17.4. | 6    | paloja voi nyt liikuttaa ja uusia paloja syntyy |
+|Yht.   | 12   |
