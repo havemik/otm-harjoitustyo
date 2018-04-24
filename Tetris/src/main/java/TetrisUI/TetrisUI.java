@@ -1,8 +1,14 @@
 package TetrisUI;
 
+import Blocks.Block;
+import Blocks.JBlock;
+import Blocks.LBlock;
 import Blocks.Square;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
@@ -16,82 +22,104 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public class TetrisUI extends Application {
-
+    
     private double time;
-    private Square current;
-
+    private Block current;
+    private List<Block> pieces;
+    
     @Override
     public void start(Stage Stage) throws Exception {
+        this.pieces = new ArrayList<>();
         Stage.setTitle("Tetris");
         Pane window = new Pane();
         Scene scene = new Scene(window, 500, 500);
-
+        
         Pane game = new Pane();
         game.setPrefSize(100, 500);
-
+        
         Scene scene2 = new Scene(game, 300, 600);
-
+        
         Button newGame = new Button("New Game");
         newGame.setOnAction(e -> {
             Stage.setScene(scene2);
         });
-
-        Line floor = new Line();
-        floor.setStartX(0.0);
-        floor.setStartY(400.0);
-        floor.setEndX(300.0);
-        floor.setEndY(400.0);
-
-        Square square = new Square();
-        current = square;
-
-
+        
+        Group floor = new Group();
+        Rectangle floorStart = new Rectangle(300, 10);
+        floor.setLayoutY(500);
+        floor.getChildren().add(floorStart);
+        
+        Block block = createBlock();
+        current = block;
+        
         scene2.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT) {
                 current.left();
             }
-
+            
             if (event.getCode() == KeyCode.RIGHT) {
                 current.right();
             }
             
-            if(event.getCode() == KeyCode.DOWN) {
+            if (event.getCode() == KeyCode.DOWN) {
                 current.down();
             }
         });
-
+        
         new AnimationTimer() {
             @Override
             public void handle(long now) {
-
+                
                 time += 0.017;
                 if (time >= 1.0) {
                     current.move();
                     time = 0;
                 }
-
-                if (current.collision(floor)) {
+                
+                if (current.collision(floor, pieces)) {
                     stop();
-                    Square moo = new Square();
+                    pieces.add(current);
+                    Block moo = createBlock();
                     current = moo;
-                    game.getChildren().add(current.getSquare());
+                    game.getChildren().add(current.getBlock());
                     this.start();
                 }
             }
         }.start();
-
+        
         window.getChildren().add(newGame);
-        game.getChildren().add(square.getSquare());
+        game.getChildren().add(block.getBlock());
         game.getChildren().add(floor);
-
+        
         Stage.setScene(scene);
         Stage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
-
+    
+    public Block createBlock() {
+        Random r = new Random();
+        int i = r.nextInt(3) + 1;
+        if (i == 1) {
+            LBlock b = new LBlock();
+            return b;
+        }
+        
+        if (i == 2) {
+            Square s = new Square();
+            return s;
+        }
+        
+        if (i == 3) {
+            JBlock j = new JBlock();
+            return j;
+        }
+        return null;
+    }
+    
 }
