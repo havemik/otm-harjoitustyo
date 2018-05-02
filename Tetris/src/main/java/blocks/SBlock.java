@@ -10,16 +10,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *Tekee neliöitä
- * 
+ *
  * @author Mikko
  */
-public class Square extends Block {
+public class SBlock extends Block{
 
-    public Square() {
+    public SBlock(){
         super(new Group());
-        Rectangle r = new Rectangle(20, 20, Color.GREEN);
-        super.getBlock().getChildren().add(r);
+        Rectangle r = new Rectangle(40, 20, Color.GOLD);
+        Rectangle r2 = new Rectangle(40, 20, Color.GOLD);
+        r.setTranslateX(20);
+        r.setTranslateY(20);
+        super.getBlock().getChildren().addAll(r, r2);
     }
-
 }

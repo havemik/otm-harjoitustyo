@@ -1,28 +1,31 @@
 package TetrisUI;
 
-import Blocks.Block;
-import Blocks.JBlock;
-import Blocks.LBlock;
-import Blocks.Square;
+import blocks.Block;
+import blocks.IBlock;
+import blocks.JBlock;
+import blocks.LBlock;
+import blocks.SBlock;
+import blocks.Square;
+import blocks.TBlock;
+import blocks.ZBlock;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+
+/**
+ *Käyttöliittymän rakentava luokka
+ * 
+ * @author Mikko
+ */
 
 public class TetrisUI extends Application {
     
@@ -67,6 +70,14 @@ public class TetrisUI extends Application {
             if (event.getCode() == KeyCode.DOWN) {
                 current.down();
             }
+            
+            if(event.getCode() == KeyCode.CONTROL){
+                current.rotate();
+            }
+            
+            if(event.getCode() == KeyCode.Z){
+                current.rotate();
+            }
         });
         
         new AnimationTimer() {
@@ -75,7 +86,7 @@ public class TetrisUI extends Application {
                 
                 time += 0.017;
                 if (time >= 1.0) {
-                    current.move();
+                    current.down();
                     time = 0;
                 }
                 
@@ -102,9 +113,13 @@ public class TetrisUI extends Application {
         launch(args);
     }
     
+    /**
+    *Metodi luo sattumanvaraisesti jonkin uuden palan
+    *
+    */
     public Block createBlock() {
         Random r = new Random();
-        int i = r.nextInt(3) + 1;
+        int i = r.nextInt(7) + 1;
         if (i == 1) {
             LBlock b = new LBlock();
             return b;
@@ -118,6 +133,27 @@ public class TetrisUI extends Application {
         if (i == 3) {
             JBlock j = new JBlock();
             return j;
+        }
+        
+        if(i == 4){
+            IBlock ib = new IBlock();
+            return ib;
+            
+        }
+        
+        if(i == 5){
+            SBlock sb = new SBlock();
+            return sb;
+        }
+        
+        if(i == 6){
+            ZBlock z = new ZBlock();
+            return z;
+        }
+        
+        if(i == 7) {
+            TBlock t = new TBlock();
+            return t;
         }
         return null;
     }

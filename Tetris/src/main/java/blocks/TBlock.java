@@ -10,16 +10,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *Tekee neliöitä
- * 
+ * Tekee T paloja
+ *
  * @author Mikko
  */
-public class Square extends Block {
+public class TBlock extends Block{
 
-    public Square() {
+    public TBlock(){
         super(new Group());
-        Rectangle r = new Rectangle(20, 20, Color.GREEN);
-        super.getBlock().getChildren().add(r);
+        Rectangle r = new Rectangle(60, 20, Color.BURLYWOOD);
+        Rectangle r2 = new Rectangle(20, 20, Color.BURLYWOOD);
+        r2.setTranslateX(20);
+        r2.setTranslateY(20);
+        super.getBlock().getChildren().addAll(r, r2);
     }
-
 }
