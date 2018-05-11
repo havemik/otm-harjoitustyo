@@ -27,42 +27,46 @@ public class IBlock extends Block {
 
     @Override
     public Block rotate(Block b) {
-        if(this.getDirection() == 1){
-            int newX = p2.getX() + 1;
-            int newY = p2.getY();
-            p1.setLocation(newX, newY);
-            b.getR1().setTranslateX(b.getR2().getTranslateX() + 10);
-            b.getR1().setTranslateY(b.getR2().getTranslateY());
-            
-            int newX2 = p2.getX() - 1;
-            p3.setLocation(newX2, newY);
-            b.getR3().setTranslateX(b.getR2().getTranslateX() - 10);
-            b.getR3().setTranslateY(b.getR2().getTranslateY());
-            
-            int newX3 = p2.getX() - 2;
-            p4.setLocation(newX3, newY);
-            b.getR4().setTranslateX(b.getR2().getTranslateX() - 20);
-            b.getR4().setTranslateY(b.getR2().getTranslateY());
-            
-            this.setDirection(2);
-        }   else if(this.getDirection() == 2){
-            int newX = p2.getX();
-            int newY = p2.getY() - 1;
-            p1.setLocation(newX, newY);
-            b.getR1().setTranslateX(b.getR2().getTranslateX());
-            b.getR1().setTranslateY(b.getR2().getTranslateY() - 10);
-            
-            int newY2 = p2.getY() + 1;
-            p3.setLocation(newX, newY2);
-            b.getR3().setTranslateX(b.getR2().getTranslateX());
-            b.getR3().setTranslateY(b.getR2().getTranslateY() + 10);
-            
-            int newY3 = p2.getY() + 2;
-            p4.setLocation(newX, newY3);
-            b.getR4().setTranslateX(b.getR2().getTranslateX());
-            b.getR4().setTranslateY(b.getR2().getTranslateY() + 20);
-            
-            this.setDirection(1);
+        if (this.getDirection() == 1) {
+            if (p2.getX() + 1 < 10 && p2.getX() - 2 > 0) {
+                int newX = p2.getX() + 1;
+                int newY = p2.getY();
+                p1.setLocation(newX, newY);
+                b.getR1().setTranslateX(b.getR2().getTranslateX() + 10);
+                b.getR1().setTranslateY(b.getR2().getTranslateY());
+
+                int newX2 = p2.getX() - 1;
+                p3.setLocation(newX2, newY);
+                b.getR3().setTranslateX(b.getR2().getTranslateX() - 10);
+                b.getR3().setTranslateY(b.getR2().getTranslateY());
+
+                int newX3 = p2.getX() - 2;
+                p4.setLocation(newX3, newY);
+                b.getR4().setTranslateX(b.getR2().getTranslateX() - 20);
+                b.getR4().setTranslateY(b.getR2().getTranslateY());
+
+                this.setDirection(2);
+            }
+        } else if (this.getDirection() == 2) {
+            if (p2.getY() - 1 > 0 && p2.getY() + 2 < 20) {
+                int newX = p2.getX();
+                int newY = p2.getY() - 1;
+                p1.setLocation(newX, newY);
+                b.getR1().setTranslateX(b.getR2().getTranslateX());
+                b.getR1().setTranslateY(b.getR2().getTranslateY() - 10);
+
+                int newY2 = p2.getY() + 1;
+                p3.setLocation(newX, newY2);
+                b.getR3().setTranslateX(b.getR2().getTranslateX());
+                b.getR3().setTranslateY(b.getR2().getTranslateY() + 10);
+
+                int newY3 = p2.getY() + 2;
+                p4.setLocation(newX, newY3);
+                b.getR4().setTranslateX(b.getR2().getTranslateX());
+                b.getR4().setTranslateY(b.getR2().getTranslateY() + 20);
+
+                this.setDirection(1);
+            }
         }
         return b;
     }

@@ -36,23 +36,23 @@ public class BlockTest {
 
     @Test
     public void rightWorks() {
-        double XAtStart = block.getBlock().getTranslateX();
+        double XAtStart = block.getR1().getTranslateX();
         block.right();
-        assertEquals(XAtStart + 10, block.getBlock().getTranslateX(), 0.1);
+        assertEquals(XAtStart + 10, block.getR1().getTranslateX(), 0.1);
     }
 
     @Test
     public void leftWorks() {
-        double XAtStart = block.getBlock().getTranslateX();
+        double XAtStart = block.getR1().getTranslateX();
         block.left();
-        assertEquals(XAtStart - 10, block.getBlock().getTranslateX(), 0.1);
+        assertEquals(XAtStart - 10, block.getR1().getTranslateX(), 0.1);
     }
 
     @Test
     public void downWorks() {
-        double YAtStart = block.getBlock().getTranslateY();
+        double YAtStart = block.getR1().getTranslateY();
         block.down();
-        assertEquals(YAtStart + 10, block.getBlock().getTranslateY(), 0.1);
+        assertEquals(YAtStart + 10, block.getR1().getTranslateY(), 0.1);
     }
     
 }
