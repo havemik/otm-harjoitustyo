@@ -12,6 +12,7 @@ import tetris.logic.TetrisLogic;
 /**
  * Kaikkien palojan yhteinen toiminnallisuus tässä luokassa
  * Jokainen pala koostuu neljästä osasta, ja niitä käsitellään osiensa kautta, vaikka ne näyttävät yhtenäisiltä.
+ * Osat on jaettu Rectangle olioihin, jotka piirretään käyttöliittymään ja Piece olioihin jotka merkitään sovelluslogiikkaan.
  * 
  * @author Mikko
  */
@@ -75,13 +76,6 @@ public abstract class Block{
         return r4;
     }
     
-    final public void rotateAlt(){
-        double x = this.block.getTranslateX();
-        double y = this.block.getTranslateY();
-        this.getBlock().setRotate(this.getBlock().getRotate() + 90);
-        this.getBlock().setTranslateX(x);
-        this.getBlock().setTranslateY(y);
-    }
     /**
     *Metodi siirtää palan jokaista osaa 10 pikseliä vasemmalle
     *

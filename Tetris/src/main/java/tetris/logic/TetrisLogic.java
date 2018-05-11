@@ -22,7 +22,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.Node;
 
 /**
- *
+ *Sovelluksen sovelluslogiikka.
+ * 
+ * Logiikka toimii merkitsemällä palikoiden sijainteja kaksiulotteiseen taulukkoon,
+ * ykköset merkitsevät aktiivisena olevaa palaa johon käyttäjän syöte kohdistuu,
+ * kakkoset passiivisia paloja, jotka voidaan tarvittaessa poistaa ja nollta
+ * ovat tyhjää tilaa.
+ * 
  * @author Mikko
  */
 public class TetrisLogic {
@@ -38,7 +44,12 @@ public class TetrisLogic {
 
         }
     }
-
+    
+     /**
+     * Metodi tarkistaa onko alaspäin siirto mahdollista tehdä.
+     * 
+     * @param   b  siirtyvä palikka
+     */
     public boolean isDownValidMove(Block b) {
         boolean canEveryPieceMove = true;
         for (int i = 0; i < 10; i++) {
@@ -61,6 +72,11 @@ public class TetrisLogic {
         return canEveryPieceMove;
     }
 
+     /**
+     * Metodi siirtää aktiivisia paloja oikealle.
+     * 
+     * @param   b  Palikka joka siirretään
+     */
     public void right(Block b) {
         boolean isLastColumnFree = true;
         for (int i = 0; i < 20; i++) {
@@ -85,6 +101,11 @@ public class TetrisLogic {
         }
     }
 
+     /**
+     * Metodi siirtää aktiivisia paloja vasemmalle.
+     * 
+     * @param   b  Palikka joka siirretään
+     */
     public void left(Block b) {
         boolean isFirstColumnFree = true;
         for (int i = 0; i < 20; i++) {
@@ -109,6 +130,11 @@ public class TetrisLogic {
         }
     }
 
+     /**
+     * Metodi siirtää aktiivisia paloja alas.
+     * 
+     * @param   b  Palikka joka liikkuu
+     */
     public void down(Block b) {
         for (int i = 20; i >= 0; i--) {
             for (int j = 0; j < 10; j++) {
@@ -125,6 +151,11 @@ public class TetrisLogic {
         b.down();
     }
 
+     /**
+     * Metodi muuntaa aktiiviset palat epäaktiivisiksi sovelluslogiikassa.
+     * 
+     * @param   b  Palikka joka saavutti pohjan
+     */
     public void dropOldBlock(Block b) {
         for (int i = 20; i >= 0; i--) {
             for (int j = 0; j < this.pieceMap.length; j++) {
@@ -135,6 +166,12 @@ public class TetrisLogic {
         }
     }
 
+    /**
+     * Metodi päivittää Sovelluslogiikkaa kun täysi rivi tulee poistaa
+     * 
+     * @param   game  Peliruutu jossa palikat sijaitsevat
+     * 
+     */
     public void clearRows(Pane game) {
         for (int i = 20; i >= 0; i--) {
             boolean rowIsFull = true;
@@ -153,12 +190,23 @@ public class TetrisLogic {
         }
     }
 
+     /**
+     * Metodi poistaa yhden rivin palat käyttöliittymästä
+     * 
+     * @param   game  Peliruutu jossa palikat sijaitsevat
+     * @param   y Mikä rivi poistettiin.
+     */   
     public void clearRowsGraphic(Pane game, int y) {
         game.getChildren().removeIf(a -> a.getTranslateY() == (y * 10));
         dropBlocksGraphic(game, y);
     }
 
-    //
+     /**
+     * Metodi päivittää käyttöliittymää kun täysi rivi on poistettu
+     * 
+     * @param   game  Peliruutu jossa palikat sijaitsevat
+     * @param   y Mikä rivi poistettiin, eli mitä ylemmät palat tulee pudottaa.
+     */
     public void dropBlocksGraphic(Pane game, double y) {
         game.getChildren().forEach(a -> {
             if (a.getTranslateY() < (y  * 10) && a.getTranslateY() > 10){
@@ -167,6 +215,13 @@ public class TetrisLogic {
         });
     }
 
+     /**
+     * Metodi muuntaa taulukon aktiiviset palat (eli 4 ykköstä) epäaktiivisiksi eli kakkosiksi.
+     *Kääntäminen tapahtuu kolumni kerrallaan.
+     * 
+     * @param   column  Mikä kolumni käännetään
+     * 
+     */
     public void dropBricks(int column) {
         for (int i = 19; i >= 0; i--) {
             if (this.pieceMap[column][i] == 2 && this.pieceMap[column][i + 1] != 2) {

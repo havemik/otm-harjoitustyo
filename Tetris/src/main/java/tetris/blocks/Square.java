@@ -32,7 +32,13 @@ public class Square extends Block {
         this.p3 = new Piece(5, 1, logic, r3);
         this.p4 = new Piece(6, 1, logic, r4);
     }
-
+    /**
+     * Neliöillä kääntäminen ei tarpeellista, metodi tulee silti ylikirjoittaa.
+     *
+     * @param   b  Mikä pala halutaan kääntää
+     * 
+     * @return käännetty pala
+     */
     @Override
     public Block rotate(Block b) {
         return b;

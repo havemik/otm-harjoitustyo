@@ -26,7 +26,8 @@ import tetris.blocks.Piece;
 import javafx.scene.text.Text;
 
 /**
- * Käyttöliittymän rakentava luokka
+ * Käyttöliittymän rakentava luokka, koostuu kahdesta Scene oliosta. 
+ * Toinen toimii tervetuloruutuna ja toisella pelataan Tetristä.
  *
  * @author Mikko
  */

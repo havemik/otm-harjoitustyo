@@ -9,7 +9,9 @@ import javafx.scene.shape.Rectangle;
 import tetris.logic.TetrisLogic;
 
 /**
- *
+ *Luokka joka vastaa yksittäisen palan luomisesta, sekä sen sijoittamisesta 
+ * sovelluslogiikan taulukkoon. Jokainen Block olio koostuu neljästä palasta.
+ * 
  * @author Mikko
  */
 public class Piece {
@@ -46,6 +48,13 @@ public class Piece {
         this.y = y;
     }
     
+     /**
+     * Metodi päivittää palataulokkoa haluttusta sijainnista.
+     *
+     * @param   x  taulukon x koordinaatti
+     * 
+     * @param   y taulukon y koordinaatti
+     */
     public void setLocation(int x, int y){
         game.getPieceMap()[this.x][this.y] = 0;
         this.x = x;

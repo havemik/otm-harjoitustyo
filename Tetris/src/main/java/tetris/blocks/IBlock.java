@@ -7,6 +7,7 @@ import javafx.scene.shape.Rectangle;
 import tetris.logic.TetrisLogic;
 
 /**
+ * Tekee I Paloja.
  *
  * @author Mikko
  */
@@ -25,6 +26,15 @@ public class IBlock extends Block {
         this.p4 = new Piece(8, 0, logic, r4);
     }
 
+    /**
+     * Metodi kääntää annetun palikan seuraavaan asentoon.
+     * Toisin kuin kaikkien muiden palojen metodit, tämä metodi toimii.
+     * Ei tosin aavistustakaan miksi.
+     *
+     * @param   b  Mikä pala halutaan kääntää
+     * 
+     * @return käännetty pala
+     */
     @Override
     public Block rotate(Block b) {
         if (this.getDirection() == 1) {

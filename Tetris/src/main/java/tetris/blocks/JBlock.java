@@ -31,7 +31,15 @@ public class JBlock extends Block {
         this.p3 = new Piece(7, 0, logic, r3);
         this.p4 = new Piece(7, 1, logic, r4);
     }
-
+    
+    /**
+     * TODO
+     * Metodi kääntää annetun palikan seuraavaan asentoon.
+     *
+     * @param   b  Mikä pala halutaan kääntää
+     * 
+     * @return käännetty pala
+     */
     @Override
     public Block rotate(Block b) {
         if(this.getDirection() == 1){

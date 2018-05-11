@@ -12,6 +12,7 @@ import javafx.scene.shape.Rectangle;
 import tetris.logic.TetrisLogic;
 
 /**
+ * Tekee S Paloja.
  *
  * @author Mikko
  */
@@ -32,6 +33,13 @@ public class SBlock extends Block {
         this.p4 = new Piece(4, 1, logic, r4);
     }
 
+     /**
+     * Metodi kääntää annetun palikan seuraavaan asentoon.
+     *
+     * @param   b  Mikä pala halutaan kääntää
+     * 
+     * @return käännetty pala
+     */
     @Override
     public Block rotate(Block b) {
         if(this.getDirection() == 1){

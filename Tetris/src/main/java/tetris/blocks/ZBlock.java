@@ -32,6 +32,13 @@ public class ZBlock extends Block {
         this.p4 = new Piece(7, 1, logic, r4);
     }
 
+     /**
+     * Metodi kääntää annetun palikan seuraavaan asentoon.
+     *
+     * @param   b  Mikä pala halutaan kääntää
+     * 
+     * @return käännetty pala
+     */
     @Override
     public Block rotate(Block b) {
         if(this.getDirection() == 1){
