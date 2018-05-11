@@ -34,3 +34,13 @@ toiminnallisuus oli helpompi jakaa paloille.
 ### Päätoiminnallisuus
 
 Kuvataan Tetris -pelin aloittamista sekvenssikaaviona.  
+
+<img 
+src="https://github.com/havemik/otm-harjoitustyo/blob/master/Dokumentaatio/Kuvat/Playing%20a%20game%20of%20tetris.png" 
+width="750">
+
+Aloittamalla uuden pelin, käyttyliittymä luo uuden olion TetrisLogicista ja pyytää tältä uuden palikan 
+luomista. Logiikka luo Block -olion joka lisätään logiikan taulukkoon ja piirretään käyttöliittymän Pane 
+olioon. Kaikki käyttäjän haluamavat (tai ajan kanssa tapahtuvat) liikkeet toteutetaan kutsumalla ensin 
+sovelluslogiikkaa, joka tarkastaa voidaanko liikettä suorittaa, ennen kuin palikan graafinen esitys 
+siirtyy, tai taulokkoa päivitetään.
