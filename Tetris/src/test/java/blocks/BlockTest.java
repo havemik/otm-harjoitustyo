@@ -5,6 +5,9 @@
  */
 package blocks;
 
+import tetris.blocks.IBlock;
+import tetris.blocks.Block;
+import tetris.logic.TetrisLogic;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,55 +22,37 @@ import static org.junit.Assert.*;
  */
 public class BlockTest {
 
+    Block block;
+    TetrisLogic logic;
+
     public BlockTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
     }
 
     @Before
     public void setUp() {
-
-    }
-
-    @After
-    public void tearDown() {
+        TetrisLogic l = new TetrisLogic();
+        block = new IBlock(l);
     }
 
     @Test
     public void rightWorks() {
-        Square square = new Square();
-        double XAtStart = square.getBlock().getTranslateX();
-        square.right();
-        assertEquals(XAtStart + 10, square.getBlock().getTranslateX(), 0.1);
+        double XAtStart = block.getBlock().getTranslateX();
+        block.right();
+        assertEquals(XAtStart + 10, block.getBlock().getTranslateX(), 0.1);
     }
 
     @Test
     public void leftWorks() {
-        Square square = new Square();
-        double XAtStart = square.getBlock().getTranslateX();
-        square.left();
-        assertEquals(XAtStart - 10, square.getBlock().getTranslateX(), 0.1);
+        double XAtStart = block.getBlock().getTranslateX();
+        block.left();
+        assertEquals(XAtStart - 10, block.getBlock().getTranslateX(), 0.1);
     }
-    
-    @Test
-    public void downWorks(){
-        Square square = new Square();
-        double YAtStart = square.getBlock().getTranslateY();
-        square.down();
-        assertEquals(YAtStart + 10, square.getBlock().getTranslateY(), 0.1);
-    }
-    
-    
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void downWorks() {
+        double YAtStart = block.getBlock().getTranslateY();
+        block.down();
+        assertEquals(YAtStart + 10, block.getBlock().getTranslateY(), 0.1);
+    }
+    
 }
